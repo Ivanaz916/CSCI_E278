@@ -151,7 +151,7 @@ def main():
         
     elif page == "About":
         st.subheader("About Page")
-        image_path = "C:/Users/ivana/Google Drive (ivana.rocci131@gmail.com)/Harvard_2024/cscie278/final_project/streamlit_app/streamlit-app/src/IMG_0639.jpg"
+        image_path = "images/IMG_0639.jpg"
         try:
             img = Image.open(image_path)
             rotated_image = img.rotate(180)  # Rotate the image by 180 degrees
