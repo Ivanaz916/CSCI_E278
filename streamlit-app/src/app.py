@@ -151,13 +151,14 @@ def main():
         
     elif page == "About":
         st.subheader("About Page")
-        image_path = "images/IMG_0639.jpg"
+        image_path = "src/images/IMG_0639.jpg"
         try:
-            img = Image.open(image_path)
-            rotated_image = img.rotate(180)  # Rotate the image by 180 degrees
-            st.image(rotated_image, width=400)
+             img = Image.open(image_path)
+             #st.image(img, caption="Family image")
+             rotated_image = img.rotate(180)  # Rotate the image by 180 degrees
+             st.image(rotated_image, caption="Family image", width=400)
         except Exception as e:
-            st.error(f"Error loading image: {e}")
+                st.error(f"Error loading image: {e}")
         st.write("""Hi! Im Ivana, a Data Scientist in the Investment Management industry 
                  and love using data and technology to enable my clients and team members 
                  unlock new insights and perspectives in a repeatable and scaleable way.                 
