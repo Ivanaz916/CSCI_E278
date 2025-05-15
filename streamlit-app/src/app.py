@@ -2,7 +2,9 @@ import streamlit as st
 from utils.data_utils import *
 import pandas as pd
 import seaborn as sns
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
+from PIL import Image
+ 
 
 
 # Set custom page title and icon
@@ -149,7 +151,20 @@ def main():
         
     elif page == "About":
         st.subheader("About Page")
-        st.write("This page contains information about the application.")
+        image_path = "C:/Users/ivana/Google Drive (ivana.rocci131@gmail.com)/Harvard_2024/cscie278/final_project/streamlit_app/streamlit-app/src/IMG_0639.jpg"
+        try:
+            img = Image.open(image_path)
+            rotated_image = img.rotate(180)  # Rotate the image by 180 degrees
+            st.image(rotated_image, width=400)
+        except Exception as e:
+            st.error(f"Error loading image: {e}")
+        st.write("""Hi! Im Ivana, a Data Scientist in the Investment Management industry 
+                 and love using data and technology to enable my clients and team members 
+                 unlock new insights and perspectives in a repeatable and scaleable way.                 
+                 My favorite take-aways from CSCI e-278 were the discussions on 
+                 factor based investing as well as ex-Ante and ex-Post analysis used in the 
+                 portfolio construction process. This data web app skims just the surface of the 
+                 latter topic and i hope to further build on this base example.""")
         
         
 
