@@ -4,6 +4,8 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 from PIL import Image
+import requests
+from io import BytesIO
  
 
 
@@ -151,12 +153,15 @@ def main():
         
     elif page == "About":
         st.subheader("About Page")
-        image_path = "src/images/IMG_0639.jpg"
+        #image_path = "src/images/IMG_0639.jpg"
         try:
-             img = Image.open(image_path)
-             #st.image(img, caption="Family image")
-             rotated_image = img.rotate(180)  # Rotate the image by 180 degrees
-             st.image(rotated_image, caption="Family image", width=400)
+             #img = Image.open(image_path)
+            url_icon = "https://github.com/Ivanaz916/CSCI_E278/blob/main/streamlit-app/src/images/IMG_0639.jpg?raw=true"
+            response = requests.get(url_icon)
+            img = Image.open(BytesIO(response.content))
+             #st.image(img, caption="Your Image", use_column_width=True)
+            rotated_image = img.rotate(180)  # Rotate the image by 180 degrees
+            st.image(rotated_image, caption="Family image", width=400)
         except Exception as e:
                 st.error(f"Error loading image: {e}")
         st.write("""Hi! Im Ivana, a Data Scientist in the Investment Management industry 
